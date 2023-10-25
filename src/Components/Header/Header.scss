@@ -1,0 +1,28 @@
+@import '../../variables/variables.scss';
+
+.header {
+  padding: 10px 0;
+}
+
+.header__title {
+  font-weight: $fwbold;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  color: $color-white;
+}
+
+.header__span {
+  background: $color-white;
+  border-radius: $border-radius;
+  padding: 2px;
+}
+
+.header__logo {
+  width: 50px;
+  height: 50px;
+}
+
+.header__brand {
+  @include flex(center, center);
+}

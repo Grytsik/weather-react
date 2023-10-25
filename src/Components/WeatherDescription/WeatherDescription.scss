@@ -1,0 +1,25 @@
+@import '../../variables/variables.scss';
+
+.feel {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.feel__body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feel__span {
+  font-size: 20px;
+  color: $color-white;
+}
+
+.feel__item {
+  display: flex;
+}
+
+.feel__icon {
+  width: 30px;
+  height: 30px;
+}

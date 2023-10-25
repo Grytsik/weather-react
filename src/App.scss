@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap');
+@import '../src/variables/variables.scss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background: $bg-color;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  object-fit: cover;
+  font-family: $font-family;
+  opacity: 1;
+  transition: background-image 1s ease;
+  width: 100wh;
+  height: 100vh;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.card {
+  background: $bg-color-card;
+  border-radius: $border-radius;
+  padding: 15px;
+  
+}
+
+.card-body {
+  padding: 0;
+}
+
+time {
+  color: $color-white;
+}
+
+.card-text, .card-title {
+  color: $text-color;
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+	padding: 0 15px;
+}
+
+.header__container {
+  width: 100%;
+  @include flex(space-between, center);
+}
+
+.search__input {
+  padding: 10px 30px;
+  border-radius: $border-radius;
+  font-size: 15px;
+  outline: none;
+}
+
+.search__input:focus {
+  border: 1px solid $color-white;
+  box-shadow: 2px 1px 10px $color-black;
+}
+
+.app__main {
+  display: flex;
+  justify-content: space-between;
+}

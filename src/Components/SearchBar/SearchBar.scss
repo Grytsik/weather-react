@@ -1,0 +1,17 @@
+@import '../../variables/variables.scss';
+
+.searchBar__input {
+  width: 200px;
+  background: $bg-color-card;
+  border: none;
+  transition: all .3s ease;
+  color: $text-color;
+  &:focus {
+    background: $bg-color-card;
+    width: 400px;
+    color: $text-color;
+  }
+  &::placeholder {
+    color: $color-white;
+  }
+}

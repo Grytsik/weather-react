@@ -1,0 +1,16 @@
+$box-shadow: 2px 1px 10px #000;
+$font-family: 'Onest', sans-serif;
+$color-white: #fff;
+$text-color: #9399a2;
+$color-black: #000;
+$bg-color: #5941a3;
+$bg-color-card: #1f1f1f;
+$border-color: #273446;
+$fwbold: 700;
+$border-radius: 20px;
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}

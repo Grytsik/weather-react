@@ -1,0 +1,65 @@
+.humidity {
+  width: 200px;
+  height: 200px;
+}
+
+.CircularProgressbar-text {
+  transform: translate(-15px, 5px);
+}
+
+.CircularProgressbar {
+  width: 150px;
+  height: 150px;
+}
+
+.humidity__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sunrise__text {
+  margin: 0 15px;
+}
+
+.desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sunrise {
+  height: 200px;
+}
+
+.sunrise__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.sunrise__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sunrise__img,
+.sunset__img {
+  width: 50px;
+  height: 50px;
+}
+
+* {
+  --c1: #c1262c;
+  --c3: #f69220;
+  --c4: #8ba247;
+  --c5: #23b473;
+}
+
+.wind {
+  width: 200px;
+  height: 200px;
+}

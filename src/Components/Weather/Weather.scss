@@ -1,0 +1,83 @@
+@import '../../variables/variables.scss';
+
+.weather {
+  flex-grow: 1;
+}
+
+.weather__city {
+  font-weight: $fwbold;
+  color: $color-white;
+  font-size: 25px;
+  margin: 0;
+}
+
+.weather__item {
+  @include flex(space-between, center);
+}
+
+.weather__animate {
+  width: 150px;
+}
+
+.weather__temp {
+  font-size: 100px;
+  position: relative;
+  font-weight: $fwbold;
+  color: $color-white;
+}
+
+.weather__info {
+  @include flex(space-around, center);
+}
+
+.weather__time_main {
+  font-size: 60px;
+}
+
+.weather__icon {
+  width: 100px;
+  position: absolute;
+  left: -66px;
+  bottom: 14px;
+}
+
+.weather__container {
+  flex-wrap: wrap;
+}
+
+.blocks-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather__error {
+  @include flex(center, center);
+  width: 350px;
+  flex-direction: column;
+  font-size: 25px;
+  font-weight: $fwbold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weather__error {
+  padding: 20px;
+}
+
+.weather__error_span {
+  color: $text-color;
+  font-size: 50px;
+}
+
+.weather__error-img {
+  width: 300px;
+}
