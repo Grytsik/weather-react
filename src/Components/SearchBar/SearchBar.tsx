@@ -5,16 +5,16 @@ import { useGlobalContext } from '../../Context/Context';
 
 export default function SearchBar() {
   const { setSearchValue } = useGlobalContext();
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
 
-  const searchLocation = (event) => {
+  const searchLocation = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       setSearchValue(inputValue);
       setInputValue('');
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 

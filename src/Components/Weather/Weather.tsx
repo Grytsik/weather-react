@@ -1,4 +1,4 @@
-import WeatherDescription from '../WeatherDescription/WeatherDescription.jsx';
+import WeatherDescription from '../WeatherDescription/WeatherDescription';
 import Icon from '../Icon/Icon';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import Clock from 'react-live-clock';
@@ -8,7 +8,6 @@ import './Weather.scss';
 
 export default function Weather() {
   const { location } = useGlobalContext();
-
   return (
     <div className='weather'>
       <div className='container'>

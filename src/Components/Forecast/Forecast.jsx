@@ -13,7 +13,7 @@ export default function Forecast() {
   const settings = {
     className: 'center',
     centerMode: true,
-    infinite: true,
+    infinite: false,
     centerPadding: '10px',
     slidesToShow: 3,
     speed: 500,

@@ -1,14 +1,15 @@
 import { apiKEY, apiURL } from '../api';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { LocationData, WeatherData } from '../types/types';
 
 export default function useGlobal() {
-  const [searchValue, setSearchValue] = useState('');
-  const [location, setLocation] = useState([]);
-  const [forecast, setForecast] = useState([]);
-  const [icon, setIcon] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [lon, setLon] = useState(null);
-  const [lat, setLat] = useState(null);
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [location, setLocation] = useState<LocationData | null>(null);
+  const [forecast, setForecast] = useState<WeatherData[]>([]);
+  const [icon, setIcon] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [lon, setLon] = useState<number | null>(null);
+  const [lat, setLat] = useState<number | null>(null);
 
   useEffect(() => {
     if (!searchValue) {
@@ -29,7 +30,9 @@ export default function useGlobal() {
           setForecast([]);
           setLoading(false);
         } else {
-          const dailyDate = data.list.filter((item) => item.dt_txt.includes('18:00:00'));
+          const dailyDate = data.list.filter((item: WeatherData) =>
+            item.dt_txt.includes('18:00:00')
+          );
           setForecast(dailyDate);
           setLoading(false);
         }
@@ -43,7 +46,7 @@ export default function useGlobal() {
       .then((response) => response.json())
       .then((data) => {
         if (data.cod >= 400) {
-          setLocation([]);
+          setLocation(null);
           setLoading(false);
         } else {
           setIcon(data?.weather[0]?.main);
@@ -55,6 +58,8 @@ export default function useGlobal() {
         console.log(err);
       });
   };
+
+  console.log(location);
 
   // Определение погоды по айпи
   const getCurrentPosition = () => {

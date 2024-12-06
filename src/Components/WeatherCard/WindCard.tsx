@@ -1,7 +1,12 @@
 import ReactSpeedometer from 'react-d3-speedometer';
 import { Card } from 'react-bootstrap';
+import { FC } from 'react';
 
-export default function WindCard({ weatherData }) {
+interface WindCardProps {
+  weatherData: number;
+}
+
+export default function WindCard ({ weatherData }: WindCardProps) {
   return (
     <Card className='wind'>
       <Card.Title>Wind</Card.Title>
