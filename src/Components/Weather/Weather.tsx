@@ -24,7 +24,7 @@ export default function Weather() {
                 </span>
                 <img
                   className='weather__animate'
-                  src={Icon(location?.weather[0]?.main, false)}
+                  src={Icon(location?.weather[0]?.main ?? '', false)}
                   alt='icon'
                 />
                 <div className='clock'>

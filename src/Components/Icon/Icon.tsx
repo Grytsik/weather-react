@@ -13,7 +13,7 @@ import rainBack from '../../img/rainBack.jpg';
 import clearBack from '../../img/clearBack.jpg';
 import snowBack from '../../img/snowBack.jpg';
 
-export default function Icon(icon, isForecast) {
+export default function Icon(icon:string, isForecast:boolean) {
   let result = clearDay;
   let backgroundUrl = '';
 

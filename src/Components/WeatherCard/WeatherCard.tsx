@@ -9,6 +9,8 @@ import SunriseSunsetCard from './SunriseSunsetCard';
 export default function WeatherCard() {
   const { location } = useGlobalContext();
   const [innerW, setInnerW] = useState(0);
+  const locationWind =
+    location?.wind?.speed !== undefined ? parseFloat(location.wind.speed.toFixed()) : 0;
 
   const settings = {
     dots: false,
@@ -41,16 +43,16 @@ export default function WeatherCard() {
   return (
     <>
       {innerW <= 668 ? (
-        <Slick settings={settings} humidity={location?.main?.humidity}>
-          <HumidityCard humidity={location?.main?.humidity} />
+        <Slick settings={settings} humidity={location?.main?.humidity ?? 0}>
+          <HumidityCard humidity={location?.main?.humidity ?? 0} />
           <SunriseSunsetCard />
-          <WindCard weatherData={location?.wind?.speed.toFixed()} />
+          <WindCard weatherData={locationWind} />
         </Slick>
       ) : (
         <div className='desc'>
-          <HumidityCard humidity={location?.main?.humidity} />
+          <HumidityCard humidity={location?.main?.humidity ?? 0} />
           <SunriseSunsetCard />
-          <WindCard weatherData={location?.wind?.speed.toFixed()} />
+          <WindCard weatherData={locationWind} />
         </div>
       )}
     </>

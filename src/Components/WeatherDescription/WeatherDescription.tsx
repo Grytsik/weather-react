@@ -5,11 +5,15 @@ import './WeatherDescription.scss';
 import { useGlobalContext } from '../../Context/Context';
 import { Card } from 'react-bootstrap';
 
-export default function WeatherDescription({ tempIcon }) {
+interface WeatherDescriptionProps {
+  tempIcon?: string;
+}
+
+export default function WeatherDescription({ tempIcon }: WeatherDescriptionProps) {
   const { location } = useGlobalContext();
-  let visibMetr = location?.visibility;
+  let visibMetr = location?.visibility ?? 0;
   let visibKm = visibMetr / 1000;
-  let hPa = location?.main?.pressure;
+  let hPa = location?.main?.pressure ?? 0;
   let pressureHPA = hPa * 0.75006375541921;
 
   return (

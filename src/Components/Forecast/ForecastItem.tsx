@@ -2,8 +2,13 @@ import Moment from 'react-moment';
 import Icon from '../Icon/Icon';
 import { Card } from 'react-bootstrap';
 import './Forecast.scss';
+import { LocationData, WeatherData } from '../../types/types';
 
-export default function ForecastItem({ item }) {
+interface ForecastProps {
+  item: LocationData,
+}
+
+export default function ForecastItem({ item }: ForecastProps) {
   return (
     <div className='forecast__item'>
       <Moment locale='en' format='ddd'>{item?.dt_txt}</Moment>

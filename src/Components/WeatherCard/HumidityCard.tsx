@@ -1,7 +1,11 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Card } from 'react-bootstrap';
 
-export default function HumidityCard({humidity}) {
+interface HumitidyProps {
+  humidity: number;
+}
+
+export default function HumidityCard({humidity}: HumitidyProps) {
 
   return (
     <Card className='humidity'>
