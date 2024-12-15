@@ -56,7 +56,7 @@ export default function Icon(icon:string, isForecast:boolean) {
         break;
     }
 
-    document.body.style.backgroundImage = backgroundUrl;
+    // document.body.style.backgroundImage = backgroundUrl;
 
     return result;
   } else {

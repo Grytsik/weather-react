@@ -8,42 +8,48 @@ import './Weather.scss';
 
 export default function Weather() {
   const { location } = useGlobalContext();
+
+  function capitalizeFirstLetter(text: string) {
+    return text ? text.charAt(0).toUpperCase() + text.slice(1) : '';
+  }
+  
+  console.log(location);
   return (
     <div className='weather'>
-      <div className='container'>
-        {location?.length !== 0 ? (
+      <div className='container weather__container'>
+        {location !== null ? (
           <>
-            <p className='weather__city'>
-              {location?.name}, {location?.sys?.country}
-            </p>
-            <div className='weather__container'>
-              <div className='weather__item'>
-                <span className='weather__temp'>
-                  {location?.main?.temp.toFixed()}
-                  &deg;
-                </span>
-                <img
-                  className='weather__animate'
-                  src={Icon(location?.weather[0]?.main ?? '', false)}
-                  alt='icon'
+            <div className='weather__current'>
+              <p className='weather_current__title'>Current Weather</p>
+              <div className='weather__clock'>
+                <Clock
+                  className='clock__big'
+                  format={'HH:mm'}
+                  ticking={true}
+                  style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}
                 />
-                <div className='clock'>
-                  <Clock
-                    locale='en'
-                    format={'dddd'}
-                    style={{ fontSize: 30, textAlign: 'center' }}
-                  />
-                  <Clock
-                    className='clock__big'
-                    format={'HH:mm:ss'}
-                    ticking={true}
-                    style={{ fontSize: 25, fontWeight: 'bold', textAlign: 'center' }}
-                  />
-                </div>
+                <Clock className='clock__big' locale='en' format={'ddd'} style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }} />
               </div>
             </div>
-            <WeatherCard />
-            <WeatherDescription />
+
+            <div className='weather__item'>
+              <img
+                className='weather__animate'
+                src={Icon(location?.weather[0]?.main ?? '', false)}
+                alt='icon'
+              />
+              <span className='weather__temp'>
+                {location?.main?.temp.toFixed()}
+                &deg;<sup>c</sup>
+              </span>
+              <div className='weather-item__description'>
+                <span className='weather-description__span'>{location?.weather[0]?.main}</span>
+                <p className='weather-description__text'>Feels like {location?.main?.feels_like.toFixed()}&deg;</p>
+              </div>
+            </div>
+            {capitalizeFirstLetter(location?.weather[0]?.description)}
+            {/* <WeatherCard />
+            <WeatherDescription /> */}
           </>
         ) : (
           <Card className='weather__error'>
