@@ -1,7 +1,10 @@
-@import '../../variables/variables.scss';
+@import '../../styles/variables.scss';
 
 .searchBar__input {
-  background: $bg-color-card;
+  background: var(--bg-color-block);
+  border: 1px solid var(--input-border-black);
 }
 
-
+.searchBar__input label {
+  color: var(--text-color-gray);
+}

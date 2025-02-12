@@ -5,11 +5,14 @@ export interface WeatherData extends LocationData {
 interface LocationMainData {
   length: number | null;
   feels_like: number;
+  sea_level: number;
   humidity: number | undefined;
   pressure: number;
   temp: number;
   temp_max: number;
   temp_min: number;
+  lat: number;
+  lon: number;
 }
 
 interface LocationWeatherData {
@@ -19,13 +22,13 @@ interface LocationWeatherData {
   icon: string;
 }
 
-interface LocationSysData {
+export interface LocationSysData {
   country: string;
-  sunrise: string;
-  sunset: string;
+  sunrise: number;
+  sunset: number;
 }
 
-interface LocationWindData {
+export interface LocationWindData {
   deg?: number;
   speed: number;
 }

@@ -1,19 +1,21 @@
-import thunderStorm from '../../animate-icon/thunderstorms-rain.svg';
+import thunderStorm from '../../animate-icon/thunderstorm.svg';
 import drizzle from '../../animate-icon/drizzle.svg';
 import rain from '../../animate-icon/rain.svg';
 import snow from '../../animate-icon/snow.svg';
-import clouds from '../../animate-icon/fog.svg';
+import clouds from '../../animate-icon/cloudy.svg';
 import fog from '../../animate-icon/fog.svg';
-import haze from '../../animate-icon/haze.svg';
-import smoke from '../../animate-icon/smoke.svg';
-import clearDay from '../../animate-icon/clear-day.svg';
+import smoke from '../../animate-icon/fog.svg';
+import clearDay from '../../animate-icon/sunny.svg';
+
+
+// Background img
 import cloudyBack from '../../img/cloud-backgr.jpg';
 import lighting from '../../img/lightingBack.jpg';
 import rainBack from '../../img/rainBack.jpg';
 import clearBack from '../../img/clearBack.jpg';
 import snowBack from '../../img/snowBack.jpg';
 
-export default function Icon(icon:string, isForecast:boolean) {
+export default function Icon(icon: string, isForecast: boolean) {
   let result = clearDay;
   let backgroundUrl = '';
 
@@ -45,9 +47,6 @@ export default function Icon(icon:string, isForecast:boolean) {
         break;
       case 'Fog':
         result = fog;
-        break;
-      case 'Haze':
-        result = haze;
         break;
       case 'Smoke':
         result = smoke;
@@ -81,9 +80,6 @@ export default function Icon(icon:string, isForecast:boolean) {
         break;
       case 'Fog':
         result = fog;
-        break;
-      case 'Haze':
-        result = haze;
         break;
       case 'Smoke':
         result = smoke;

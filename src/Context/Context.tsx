@@ -1,9 +1,9 @@
-import React, { createContext, FC, useContext } from 'react';
+import React, { createContext, FC, useContext} from 'react';
 import useGlobal from './useGlobal';
 import { LocationData, WeatherData } from '../types/types';
 
 interface ContextProviderProps {
-  children?:React.ReactNode;
+  children?: React.ReactNode;
 }
 
 interface GlobalContextType {
@@ -13,10 +13,13 @@ interface GlobalContextType {
   forecast: WeatherData[];
   icon: string;
   loading: boolean;
+  theme: string;
+  toggleTheme: () => void;
+  lat: number | null;
+  lon: number | null;
 }
 
 export const GlobalContext = createContext<GlobalContextType | null>(null);
-
 
 export const useGlobalContext = () => {
   const context = useContext(GlobalContext);
@@ -27,12 +30,12 @@ export const useGlobalContext = () => {
   return context;
 };
 
-export const GlobalContextProvider:FC<ContextProviderProps> = ({ children }) => {
+export const GlobalContextProvider: FC<ContextProviderProps> = ({ children }) => {
   const globalState = useGlobal();
 
   return (
     <GlobalContext.Provider value={globalState}>
-      {children}
+      <div>{children}</div>
     </GlobalContext.Provider>
   );
 };

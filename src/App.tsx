@@ -1,17 +1,27 @@
-import './App.scss';
 import Header from './Components/Header/Header';
 import Weather from './Components/Weather/Weather';
 import { ColorRing } from 'react-loader-spinner';
 import { useGlobalContext } from './Context/Context';
 import Forecast from './Components/Forecast/Forecast';
+import { useEffect } from 'react';
+
+import './App.scss';
 
 function App() {
-  const { loading, forecast } = useGlobalContext();
+  const { loading, location, forecast, theme } = useGlobalContext();
+
+  useEffect(() => {
+    document.body.className = theme;
+
+    return () => {
+      document.body.className = '';
+    };
+  }, [theme]);
 
   return (
-    <div className='App'>
+    <div className='app'>
       <div className='container'>
-        {loading ? (
+        {loading && !location ? (
           <ColorRing
             visible={true}
             height='100'
@@ -25,7 +35,7 @@ function App() {
             <Header />
             <div className='app__main'>
               <Weather />
-              {forecast.length > 0 && !null ? <Forecast /> : null}
+              {forecast.length > 0 ? <Forecast /> : null}
             </div>
           </>
         )}

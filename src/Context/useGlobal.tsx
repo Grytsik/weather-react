@@ -1,5 +1,5 @@
 import { apiKEY, apiURL } from '../api';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LocationData, WeatherData } from '../types/types';
 
 export default function useGlobal() {
@@ -10,6 +10,18 @@ export default function useGlobal() {
   const [loading, setLoading] = useState<boolean>(true);
   const [lon, setLon] = useState<number | null>(null);
   const [lat, setLat] = useState<number | null>(null);
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  },[theme]);
 
   useEffect(() => {
     if (!searchValue) {
@@ -23,6 +35,7 @@ export default function useGlobal() {
 
   // Погода на 5 дней
   const getForecast = async () => {
+    setLoading(true);
     await fetch(`${apiURL}/forecast?${how_to_search}&lang=ua&units=metric&appid=${apiKEY}`)
       .then((response) => response.json())
       .then((data) => {
@@ -59,15 +72,15 @@ export default function useGlobal() {
       });
   };
 
-  console.log(location);
-
   // Определение погоды по айпи
   const getCurrentPosition = () => {
+    setLoading(true);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         setLat(position.coords.latitude);
         setLon(position.coords.longitude);
       });
+      setLoading(false);
     }
   };
 
@@ -78,5 +91,9 @@ export default function useGlobal() {
     forecast,
     icon,
     loading,
+    toggleTheme,
+    theme,
+    lon,
+    lat,
   };
 }
